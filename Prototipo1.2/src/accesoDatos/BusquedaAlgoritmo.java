@@ -1,6 +1,6 @@
 //	Paquete al que pertenece
 package accesoDatos;	
-// Paquete que quiero inportar .laclase
+// Paquete que quiero importar .laclase
 import modelo.Usuario;	
 
 /**Algortimo de Busqueda Binaria.
@@ -16,7 +16,7 @@ import modelo.Usuario;
 		int medio = 0;
 		while (inicio <= fin) {
 			medio = (inicio+fin) / 2;
-			comparacion = Datos.datosUsuario.get(medio).nif.compareTo(nif);
+			comparacion = Datos.datosUsuario.get(medio).getNif().getTexto().compareTo(nif);
 			if ( comparacion == 0 )
 				return Datos.datosUsuario.get(medio);
 			else if ( comparacion < 0) {

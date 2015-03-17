@@ -2,9 +2,12 @@ package accesoDatos;
 
 import java.util.ArrayList;
 
-import modelo.CifradoCesar;
+import util.CifradoCesar;
+import modelo.Nif;
 import modelo.SesionUsuario;
 import modelo.Usuario;
+import modelo.Direccion;
+import modelo.Usuario.RolUsuario;
 
 public class Datos {
 	
@@ -23,7 +26,7 @@ public class Datos {
 		
 		for (Usuario U: datosUsuario){			
 			
-				if(U.nif.equals(dni)){		
+				if(U.getNif().equals(dni)){		
 					
 						aux2.append(U.aTextoConSeparador('\n'));	
 						return aux2.toString();
@@ -38,7 +41,7 @@ public class Datos {
 		
 		for (SesionUsuario S: SesionesUsuario){			
 			if(S!=null){
-				if(S.usr.nif.equals(dni)){		
+				if(S.usr.getNif().equals(dni)){		
 					
 					aux3.append("El Usuario inicio sesion el :"+S.fecha);
 					
@@ -92,15 +95,15 @@ public class Datos {
 			Usuario aux = new Usuario();
 			
 			
-			aux.nif = i+"4689523p";
-			aux.nombre = e+1+"juan";
-			aux.apellidos = e+1+"aaa";
-		    aux.domicilio = e+1+"aaa";
-			aux.correoE = Usuario.correoValido(e +"gemai@laaa.com");
-			aux.fechaNacimiento = e+1+"aaa";
-			aux.fechaAlta = e+1+"aaa";
-			aux.claveAcceso = CifradoCesar.Cifrado(e+1+"hola123");
-			aux.rol = e+1+"aaa";
+			aux.setNif(new Nif(i+"7689523P"));
+			aux.setNombre(e+1+"juan");
+			aux.setApellidos(e+1+"aaa");
+		    aux.setDomicilio(new Direccion("via de la plata","30006","3","Murcia","Españistan"));
+			aux.setCorreoE(Usuario.correoValido(e +"gemai@laaa.com"));
+			aux.setFechaNacimiento(e+1+"aaa");
+			aux.setFechaAlta(e+1+"aaa");
+			aux.setClaveAcceso(CifradoCesar.Cifrado(e+1+"hola123"));
+			aux.setRol(RolUsuario.INVITADO);
 			
 			datosUsuario.add(aux);
 			

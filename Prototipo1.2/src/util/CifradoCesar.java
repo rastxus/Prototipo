@@ -1,4 +1,4 @@
-package modelo;
+package util;
 
 import accesoDatos.Datos;
 

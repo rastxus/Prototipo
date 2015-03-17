@@ -4,17 +4,19 @@ import java.util.Date;
 import java.util.Scanner;
 
 
+
 /**
  * @author Jesus
  *
  */
 import accesoDatos.BusquedaAlgoritmo;
 import accesoDatos.Datos;
-import modelo.CifradoCesar;
 import modelo.SesionUsuario;
 import modelo.Usuario;
 
 import java.util.ArrayList;
+
+import util.CifradoCesar;
 public class Principal {
 
 
@@ -94,7 +96,7 @@ public class Principal {
 			if(opcion == 8){
 				System.out.println("Introduzca usuario a buscar");
 				String user=teclado2.nextLine();
-				System.out.println(BusquedaAlgoritmo.buscarUsuarioBin(user).nombre);
+				System.out.println(BusquedaAlgoritmo.buscarUsuarioBin(user).getNombre());
 			}
 		}
 
@@ -120,11 +122,11 @@ public class Principal {
 			System.out.println("Contraseña");
 			String contraseña=teclado.nextLine();
 			int n = 0;
-			for(int u = 0; u<Datos.datosUsuario.size() ; u++){
+			for(int u = 0; u < Datos.datosUsuario.size() ; u++){
 
-				if (Datos.datosUsuario.get(u).nombre.equals(alias)){
+				if (Datos.datosUsuario.get(u).getNombre().equals(alias)){
 
-					String[] numeroExtraido= Datos.datosUsuario.get(u).claveAcceso.split(",");
+					String[] numeroExtraido= Datos.datosUsuario.get(u).getClaveAcceso().split(",");
 					n = Integer.parseInt(numeroExtraido[numeroExtraido.length - 1]);
 				}
 			}
@@ -138,9 +140,9 @@ public class Principal {
 
 			for(int i=0;i<Datos.datosUsuario.size();i++){
 
-				if (Datos.datosUsuario.get(i).nombre.equals(alias)){
+				if (Datos.datosUsuario.get(i).getNombre().equals(alias)){
 
-					if(Datos.datosUsuario.get(i).claveAcceso.equals(contraseña)){
+					if(Datos.datosUsuario.get(i).getClaveAcceso().equals(contraseña)){
 
 						System.out.println("ok payo");
 						registrodesesion(i);
